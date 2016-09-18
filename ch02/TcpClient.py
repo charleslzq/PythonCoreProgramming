@@ -3,10 +3,19 @@ from socket import *
 HOST = 'localhost'
 PORT = 21567
 BUFSIZ = 1024
-ADDR = (HOST, PORT)
 
+
+
+host = input('>host:\t')
+port = int(input('>port:\t'))
+if not host:
+    host = HOST
+if not port:
+    port = PORT
+
+address = (host, port)
 tcpCliSock = socket(AF_INET, SOCK_STREAM)
-tcpCliSock.connect(ADDR)
+tcpCliSock.connect(address)
 
 while True:
     data = input('> ')
